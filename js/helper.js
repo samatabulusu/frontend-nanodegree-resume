@@ -40,7 +40,8 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+// added id to img tag - Samata
+var HTMLprojectImage = '<img src="%data%" data-toggle="modal" data-target="#%id%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';

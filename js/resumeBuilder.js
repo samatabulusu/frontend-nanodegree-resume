@@ -71,7 +71,7 @@ var work = {
 			"title" : "Despicable Me, Supervillan",
 			"location" : "Albuquerque, New Mexico",
 			"dates" : "2010 - 2013",
-			"description" : "I, Gru, a supervillain hatch plan to steal the moon. Surrounded by an army of little yellow minions and my impenetrable arsenal of weapons and war machines, I vanquish all who stand in my way. But nothing in my calculations and groundwork prepared me for my greatest challenge: three adorable orphan girls (Miranda Cosgrove, Dana Gaier, Elsie Fisher) who want to make me their dad."
+			"description" : "I, Gru, a supervillain hatch plan to steal the moon. Surrounded by my army of little yellow minions and our impenetrable arsenal of weapons and war machines, I vanquish all who stand in my way. But nothing in my calculations and groundwork prepared me for my greatest challenge: three adorable orphan girls (Miranda Cosgrove, Dana Gaier, Elsie Fisher) who want to make me their dad."
 		},
 		{
 			"employer" : "Universal Studios",
@@ -111,25 +111,26 @@ var projects = {
 			"title" : "Freeze Ray",
 			"dates" : "2010",
 			"description" : "Water becomes a liquid at 100 degrees Celsius and freezes at 0 degrees Celsius. I designed and created a freeze ray weapon that would cool the air around a person or object to 0 degrees Celsius, freezing the water vapour in the air around that person. I frequently use it to get to the front of line in the coffee shop. I also use it on anyone in my way.",
-			"images" : ["images/Freezeray1-525x170.jpg", "images/Freezeray2-525x170.jpg"]
+			"images" : ["images/freezeray1-525x170.jpg", "images/freezeray2-525x170.jpg"]
 		},
 		{
 			"title" : "Steal Shrink Ray back from Vector",
 			"dates" : "2010",
 			"description" : "During a testing of the shrink ray in a facility in East Asia, I stole the shrink ray and flew off in my ship. However, Vector stole the shrink ray from me mid-flight. I asked Dr. Nefario to make cookie robots and use the girls to sell Vector the robot cookies. The cookie robots once in Vector's lair, activate and break into Vector's vault. The minions and I retrieve the shirink ray and escape using the air vents without Vector noticing.",
-			"images" : ["images/Cookierobots200x130.jpeg", "images/Stealshrinkray230x130.jpeg", "images/shrinkrayairvent130x130.jpeg"]
+			"images" : ["images/cookierobots200x130.jpg", "images/stealshrinkray230x130.jpg", "images/shrinkrayairvent130x130.jpg"]
 
 		},
 		{
 			"title" : "Steal the Moon and Return it to Orbit",
 			"dates" : "2010",
 			"description" : "I board a rocket and fly off to the moon. After shrinking the moon, with the shrink ray, I pocket it. Mid-flight, I have to hand the moon over to Vector as he is holding the girls captive. Dr. Nefario explains that the effects of the shrink ray are not permanent and the moon starts to grow smashing Vecors pod. I rescue the girls from Vector's ship as the moon crushes Vector and his controls and accelerates to space right back into its orbit.",
-			"images" : ["images/rocket220x130.jpeg", "images/shrinkmoon220x130.jpeg", "images/shrunkmoon180x130.jpeg"]
+			"images" : ["images/rocket220x130.jpg", "images/shrinkmoon220x130.jpg", "images/shrunkmoon180x130.jpg"]
 		}
 	],
 	"display" : function() {
         // start a new project section
         $("#projects").append(HTMLprojectStart);
+
 		for (project in projects.projects) {
 	        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
 	        $(".project-entry:last").append(formattedTitle);
@@ -141,11 +142,14 @@ var projects = {
 	        $(".project-entry:last").append(formattedDescription);
 
 	        if (projects.projects[project].images.length > 0) {
+	        	var counter = 0;
 	            for (image in projects.projects[project].images) {
-	                var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+	                var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]).replace("%id%", project + counter);
 	                $(".project-entry:last").append(formattedImage);
+	                counter = counter + 1;
 	            }
 	        }
+
 		}
 	}
 }
