@@ -13,7 +13,7 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr/>';
+var HTMLheaderRole = '<span class="title-text">%data%</span><hr/>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
@@ -56,20 +56,42 @@ var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
-var internationalizeButton = '<button>Internationalize</button>';
+// set class value so it can be checked before acting on the button intent
+var internationalizeButton = '<div class="internationalize" align="right"><button>Internationalize</button></div>';
 var googleMap = '<div id="map"></div>';
+
+
+
 
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
 $(document).ready(function() {
-  $('button').click(function() {
-    var name = $('#name')[0].innerText;
+
+  // when a button is clicked check if its the 'internationalize' class  before doing an uppercase for last name
+  $(document).on("click", ".internationalize", function () {
+        var name = $('#name')[0].innerText;
     var iName = inName(name) || function(){};
     $('#name').html(iName);
   });
+
+  // when user clicks 'close' button, or outside the modal window, stop the youtube video in the modal and reset it to beginning
+  $(document).on("click", ".modal", function () {
+    $iframe = $(this).find( "iframe" );
+    $iframe.attr("src", $iframe.attr("src"));
+  });
+
 });
+
+// function to uppercase last name
+function inName(name) {
+    var nArray = name.trim().split(" ");
+    var firstName = nArray[0];
+    var lastName = nArray[1];
+    var firstChar = firstName.charAt(0).toUpperCase();
+    return firstChar.concat(firstName.slice(1)) + " " + lastName.toUpperCase();
+}
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.

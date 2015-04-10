@@ -105,7 +105,6 @@ var work = {
 work.display();
 
 var projects = {
-	// TODO - make image extensions and image naming conventions standard
 	"projects" : [
 		{
 			"title" : "Freeze Ray",
@@ -169,7 +168,7 @@ var education = {
 			"url" : "http://www.galcit.caltech.edu/academics/grad_as"
 		},
 		{
-			"name" : "University of Hyderabad",
+			"name" : "Massachusetts Institute of Technology",
 			"location" : "77 Massachusetts Avenue, 33-207, Cambridge MA 02139 USA",
 			"degree" : "Master of Science",
 			"majors" : ["Aerospace Computational Engineering", "Humans in Aerospace", "Space Propulsion", "Space Systems"],
@@ -180,7 +179,7 @@ var education = {
 			"name" : "University of Sydney",
 			"location" : "University of Sydney, NSW 2006, Australia",
 			"degree" : "Bachelor of Engineering",
-			"majors" : ["Aeronautical and Aeronautical(Space)", "Mechatronics and Mechatronics(Space)"],
+			"majors" : ["Aeronautical", "Aeronautical Space", "Mechatronics", "Mechatronics Space"],
 			"dates" : 1978,
 			"url" : "http://web.aeromech.usyd.edu.au/index.php"
 		}
@@ -203,16 +202,28 @@ var education = {
 		        var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 		        var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
 		        var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-		        var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[0]);
+		        //var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[0]);
 
 				// start education
 				$("#education").append(HTMLschoolStart);
 		        $(".education-entry:last").append(formattedName + formattedDegree);
 		        $(".education-entry:last").append(formattedDates);
 		        $(".education-entry:last").append(formattedLocation);
+
 		        // if more than one major then this array will have to be traversed
-		        // TODO - make code array friendly and fail safe
-		        $(".education-entry:last").append(formattedMajor);
+		        if (education.schools[school].majors.length > 0) {
+		        	var m = "";
+		            for (i =0; i < education.schools[school].majors.length; i++) {
+		            	if (m.length > 0 && i != education.schools[school].majors.length) { m += ", "}
+		            	m += education.schools[school].majors[i]
+	            	}
+	            	console.log(m);
+					var formattedMajor = HTMLschoolMajor.replace("%data%", m);
+
+	            	$(".education-entry:last").append(formattedMajor);
+	            	m = "";
+	            }
+
 		    }
 		}
 
@@ -240,16 +251,8 @@ var education = {
 // call on education's display object to make education visible
 education.display();
 
+// add internationalize button to the page
 $("#main").append(internationalizeButton);
-
-function inName(name) {
-    console.log("name: " + name);
-    var nArray = name.trim().split(" ");
-    var firstName = nArray[0];
-    var lastName = nArray[1];
-    var firstChar = firstName.charAt(0).toUpperCase();
-    return firstChar.concat(firstName.slice(1)) + " " + lastName.toUpperCase();
-}
 
 $("#mapDiv").append(googleMap);
 
