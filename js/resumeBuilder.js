@@ -28,7 +28,7 @@ var bio = {
 		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
 		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 		var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
-		var formattedWelcomeMessage = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+		var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
 		// append formatted variables
 
