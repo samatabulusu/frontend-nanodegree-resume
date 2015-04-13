@@ -134,7 +134,7 @@ var projects = {
 		{
 			"title" : "Other Weapons (used for self defense, stealing important icons, escaping without being seen but never to injure, maim or destruct)",
 			"dates" : "2010",
-			"description" : "SR-6, Fart Gun, Lazer, Rocket Launcher, Grumobile, Jellu Gun, Airship, Big Blaster Cannon and many more..",
+			"description" : "SR-6, Fart Gun, Lazer, Rocket Launcher, Grumobile, Jelly Gun, Airship, Big Blaster Cannon and many more..",
 			"images" : []
 		}
 
