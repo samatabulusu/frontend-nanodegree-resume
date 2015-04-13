@@ -41,7 +41,7 @@ var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 // added id to img tag - Samata
-var HTMLprojectImage = '<img src="%data%" data-toggle="modal" data-target="#%id%">';
+var HTMLprojectImage = '<img class="projectpic" src="%data%" data-toggle="modal" data-target="#%id%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
@@ -55,6 +55,9 @@ var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
+
+//var HTMLachievements = '<span class="achievement-entry achievement-text">%data%</span><hr/>';
+var HTMLachievements = '<p class="achievement-entry achievement-text"><br>%data%</p>';
 
 // set class value so it can be checked before acting on the button intent
 var internationalizeButton = '<div class="internationalize" align="right"><button>Internationalize</button></div>';
@@ -71,7 +74,7 @@ $(document).ready(function() {
 
   // when a button is clicked check if its the 'internationalize' class  before doing an uppercase for last name
   $(document).on("click", ".internationalize", function () {
-        var name = $('#name')[0].innerText;
+    var name = $('#name')[0].innerText;
     var iName = inName(name) || function(){};
     $('#name').html(iName);
   });

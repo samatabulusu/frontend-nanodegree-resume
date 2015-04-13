@@ -42,12 +42,15 @@ h4 {
   line-height: 17px;
 }
 
-h2, h3, h4, h5 {
+h2, h3, h4, h5, .achievement-text {
   padding:10px;
   padding-left: 5%;
   padding-right: 5%;
 }
 
+.achievement-text {
+  line-height: 1px;
+}
 
 .date-text {
   font-style: italic;
@@ -155,6 +158,11 @@ ul {
   width: 200px;
   height: 210px;
   display: none;
+}
+
+.projectpic {
+  width: 400px;
+  height: 210px;
 }
 
 img {

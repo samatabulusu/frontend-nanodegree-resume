@@ -1,3 +1,9 @@
+/* Front End Web Developer              */
+/* Project 2, Online Course, Udacity    */
+/* @date 4/10/15                        */
+/* @author Samata Suravajjula           */
+/* A javascript file for resume objects */
+
 // bio JSON object
 var bio = {
 	"name" : "Felonius Gru",
@@ -10,8 +16,8 @@ var bio = {
 		"location" : "Albuquerque, New Mexico"
 	},
 	"welcomeMessage" : "Formerly the world's greatest villan, now a Consultant for the Anti-Villan League",
-	"skills" : ["Parent", "Strong", "Athletic", "Agile", "Intelligent", "Clever", "Boss"],
-	"biopic" : "images/Gru.jpg",
+	"skills" : ["Parent", "Strong", "Athletic", "Agile", "Intelligent", "Clever", "Boss", "Impersonator"],
+	"biopic" : "images/feloniusgru.jpeg",
 	"display" : function() {
 		// formatted variables
 		var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -110,21 +116,28 @@ var projects = {
 			"title" : "Freeze Ray",
 			"dates" : "2010",
 			"description" : "Water becomes a liquid at 100 degrees Celsius and freezes at 0 degrees Celsius. I designed and created a freeze ray weapon that would cool the air around a person or object to 0 degrees Celsius, freezing the water vapour in the air around that person. I frequently use it to get to the front of line in the coffee shop. I also use it on anyone in my way.",
-			"images" : ["images/freezeray1-525x170.jpg", "images/freezeray2-525x170.jpg"]
+			"images" : ["images/freezeray1.jpeg", "images/freezeray2.jpeg"]
 		},
 		{
 			"title" : "Steal Shrink Ray back from Vector",
 			"dates" : "2010",
 			"description" : "During a testing of the shrink ray in a facility in East Asia, I stole the shrink ray and flew off in my ship. However, Vector stole the shrink ray from me mid-flight. I asked Dr. Nefario to make cookie robots and use the girls to sell Vector the robot cookies. The cookie robots once in Vector's lair, activate and break into Vector's vault. The minions and I retrieve the shirink ray and escape using the air vents without Vector noticing.",
-			"images" : ["images/cookierobots200x130.jpg", "images/stealshrinkray230x130.jpg", "images/shrinkrayairvent130x130.jpg"]
+			"images" : ["images/robotscookie.jpeg", "images/shrinkray.jpeg"]
 
 		},
 		{
-			"title" : "Steal the Moon and Return it to Orbit",
+			"title" : "Steal the Moon",
 			"dates" : "2010",
 			"description" : "I board a rocket and fly off to the moon. After shrinking the moon, with the shrink ray, I pocket it. Mid-flight, I have to hand the moon over to Vector as he is holding the girls captive. Dr. Nefario explains that the effects of the shrink ray are not permanent and the moon starts to grow smashing Vecors pod. I rescue the girls from Vector's ship as the moon crushes Vector and his controls and accelerates to space right back into its orbit.",
-			"images" : ["images/rocket220x130.jpg", "images/shrinkmoon220x130.jpg", "images/shrunkmoon180x130.jpg"]
+			"images" : ["images/rocket.jpeg", "images/rockettomoon.jpeg", "images/shrinkmoon.jpeg"]
+		},
+		{
+			"title" : "Other Weapons (used for self defense, stealing important icons, escaping without being seen but never to injure, maim or destruct)",
+			"dates" : "2010",
+			"description" : "SR-6, Fart Gun, Lazer, Rocket Launcher, Grumobile, Jellu Gun, Airship, Big Blaster Cannon and many more..",
+			"images" : []
 		}
+
 	],
 	"display" : function() {
         // start a new project section
@@ -217,9 +230,7 @@ var education = {
 		            	if (m.length > 0 && i != education.schools[school].majors.length) { m += ", "}
 		            	m += education.schools[school].majors[i]
 	            	}
-	            	console.log(m);
 					var formattedMajor = HTMLschoolMajor.replace("%data%", m);
-
 	            	$(".education-entry:last").append(formattedMajor);
 	            	m = "";
 	            }
@@ -250,6 +261,22 @@ var education = {
 
 // call on education's display object to make education visible
 education.display();
+
+// achievements JSON object
+var achievements = {
+	"achievements" : ["Drawing a picture of myself landing on the moon", "Making a macaroni prototype of the rocket", "Making a full-sized, fully-working rocket, based on the model and macaroni prototype", "Stealing the Times Square Jumbotron", "Stealing the Statue of Liberty (the small one from Las Vegas)", "Adopting three girls from Ms. Hattie's Home for Girls", "Stealing the Shrink Ray", "Making a rocket (with help from the Minions and Dr. Nefario", "Stealing the moon (momentarily)", "Saving Margo, Edith and Agnes from Vector", "Unintentionally returning the moon", "Becoming the world's best hero (unintentionally, of course)", "Becoming a caring father"],
+	"display" : function() {
+		if (achievements.achievements.length > 0) {
+			for (i = 0; i < achievements.achievements.length; i++) {
+				var formattedAchievement = HTMLachievements.replace("%data%", achievements.achievements[i]);
+				$("#achievements").append(formattedAchievement);
+			}
+		}
+	}
+}
+
+// call on achievemen's display object to make achievements visible
+achievements.display();
 
 // add internationalize button to the page
 $("#main").append(internationalizeButton);
