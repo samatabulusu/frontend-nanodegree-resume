@@ -63,10 +63,6 @@ var HTMLachievements = '<p class="achievement-entry achievement-text"><br>%data%
 var internationalizeButton = '<div class="internationalize" align="right"><button>Internationalize</button></div>';
 var googleMap = '<div id="map"></div>';
 
-
-
-
-
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
